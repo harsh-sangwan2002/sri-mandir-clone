@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+// Navbar.jsx
+import { useState } from 'react';
+>>>>>>> a6ee5869fe59f304161ec8361616ddca09373d18
 import styled from 'styled-components';
 import { Menu, MenuItem, IconButton, Button, Avatar, ListItemText, Divider, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -31,6 +36,12 @@ const NavLink = styled(Link)`
   &:hover {
     color: #ff5722;
   }
+`;
+
+const NavLinkWithIcon = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 const LangButton = styled(Button)`
@@ -80,9 +91,15 @@ const Navbar = () => {
         </NavLink>
         <NavLink component={Link} to="/panchang">Panchang</NavLink>
         <NavLink component={Link} to="/temples">Temples</NavLink>
+<<<<<<< HEAD
         <NavLink onClick={handleMenuOpen}>
           Library
         </NavLink>
+=======
+        <NavLinkWithIcon onClick={handleMenuOpen}>
+          Library <ArrowDropDown />
+        </NavLinkWithIcon>
+>>>>>>> a6ee5869fe59f304161ec8361616ddca09373d18
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
