@@ -1,5 +1,5 @@
 // Navbar.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Menu, MenuItem, IconButton, Button, Avatar } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
@@ -34,6 +34,12 @@ const NavLink = styled(Link)`
   &:hover {
     color: #ff5722;
   }
+`;
+
+const NavLinkWithIcon = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 const LangButton = styled(Button)`
@@ -74,9 +80,9 @@ const Navbar = () => {
         </NavLink>
         <NavLink component={Link} to="/panchang">Panchang</NavLink>
         <NavLink component={Link} to="/temples">Temples</NavLink>
-        <NavLink endIcon={<ArrowDropDown />} onClick={handleMenuOpen}>
-          Library
-        </NavLink>
+        <NavLinkWithIcon onClick={handleMenuOpen}>
+          Library <ArrowDropDown />
+        </NavLinkWithIcon>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
