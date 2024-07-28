@@ -4,7 +4,7 @@ This is a clone of the [Sri Mandir](https://www.srimandir.com/) website, built u
 
 ## Live Demo
 
-Check out the live demo of this app [here]().
+Check out the live demo of this app [here](https://sri-mandir-clone-harsh.vercel.app/).
 
 ## Technologies Used
 
