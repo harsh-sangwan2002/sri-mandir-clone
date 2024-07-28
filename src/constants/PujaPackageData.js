@@ -1,4 +1,3 @@
-// src/constants/PujaPackageData.js
 const PujaPackageData = {
   pkg1: {
     price: "₹851",
@@ -8,7 +7,8 @@ const PujaPackageData = {
       "Pandit ji will call out your name and gotra during the puja sankalp.",
       "Opt for additional offerings like Vastra Daan, Anna Daan, Gau Seva, or Deep Daan to be done in your name.",
       "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
-      "Sacred Tirth Prasad will be sent to your address within 8-10 days."
+      "Sacred Tirth Prasad will be sent to your address within 8-10 days.",
+      "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
     ],
   },
   pkg2: {
@@ -19,7 +19,8 @@ const PujaPackageData = {
       "Pandit ji will call out your name and gotra during the puja sankalp.",
       "Opt for additional offerings like Vastra Daan, Anna Daan, Gau Seva, or Deep Daan to be done in your name.",
       "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
-      "Sacred Tirth Prasad will be sent to your address within 8-10 days."
+      "Sacred Tirth Prasad will be sent to your address within 8-10 days.",
+      "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
     ],
   },
   pkg3: {
@@ -31,7 +32,8 @@ const PujaPackageData = {
       "Bhog consisting of fruits, sweets, and dry fruits will be offered to Lord Shiva at Shri Pashupatinath Mahadev Temple.",
       "Opt for additional offerings like Vastra Daan, Anna Daan, Gau Seva, or Deep Daan to be done in your name.",
       "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
-      "Sacred Tirth Prasad will be sent to your address within 8-10 days."
+      "Sacred Tirth Prasad will be sent to your address within 8-10 days.",
+      "Pandit ji will call out your name and gotra during the puja sankalp."
     ],
   },
   pkg4:{
@@ -43,7 +45,7 @@ const PujaPackageData = {
           "Bhog consisting of fruits, sweets, and dry fruits will be offered to Lord Shiva at Shri Pashupatinath Mahadev Temple along with floral tributes.",
           "Opt for additional offerings like Vastra Daan, Anna Daan, Gau Seva, or Deep Daan to be done in your name.",
           "Upon completion, a video of your puja and offering will be shared with you on your registered WhatsApp number or can be found in your booking history within 3-4 days.",
-          "Sacred Tirth Prasad will be sent to your address within 8-10 days."
+          "Sacred Tirth Prasad will be sent to your address within 8-10 days.",
         ],
   }
 };

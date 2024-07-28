@@ -1,15 +1,18 @@
-import Footer from "../components/Footer";
+import styled from "styled-components";
 import Hero from "../components/Hero";
-import Socials from "../components/Socials";
+import Cards from '../components/Cards';
 
 const Home = () => {
   
+  const Container = styled.div`
+    margin:0px;
+    padding:0px;
+  `
   return (
-    <div>
+    <Container>
       <Hero/>
-      <Footer/>
-      <Socials/>
-    </div>
+      <Cards />
+    </Container>
   );
 };
 

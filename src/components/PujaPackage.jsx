@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Card, CardContent, Typography, Button } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import { usePujaPackageContext } from '../context/PujaPackageContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PackageContainer = styled.div`
   display: flex;
@@ -17,13 +17,25 @@ const PackageCard = styled(Card).attrs(({ borderColor }) => ({
     borderColor: borderColor,
   },
 }))`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   max-width: 300px;
   border: 2px solid;
   border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const PackageContent = styled(CardContent)`
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
 `;
 
 const PriceText = styled(Typography).attrs(({ borderColor }) => ({
@@ -34,6 +46,7 @@ const PriceText = styled(Typography).attrs(({ borderColor }) => ({
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 10px;
 `;
 
 const FamilyTypeText = styled(Typography).attrs(({ borderColor }) => ({
@@ -42,18 +55,21 @@ const FamilyTypeText = styled(Typography).attrs(({ borderColor }) => ({
   },
 }))`
   text-align: center;
-`;
-
-const DetailText = styled(Typography)`
   margin-bottom: 10px;
 `;
 
+const DetailText = styled.li`
+  list-style: inside;
+  margin-bottom: 5px;
+`;
+
 const SelectButton = styled(Button)`
-  background-color: #90ee90; /* Light green background */
+  background-color: #90ee90;
   color: white;
   margin-top: 10px;
+  align-self: center;
   &:hover {
-    background-color: #32cd32; /* Darker green on hover */
+    background-color: #32cd32;
   }
 `;
 
@@ -76,10 +92,9 @@ const PujaPackage = ({ bookingUrl }) => {
   const PujaPackageData = usePujaPackageContext();
   const navigate = useNavigate();
 
-  const handlePujaBooking = (packageData)=>{
-
+  const handlePujaBooking = (packageData) => {
     navigate(`/epuja/cart/${packageData.familyType.replace(/ /g, '-').toLowerCase()}`, { state: packageData });
-  }
+  };
 
   return (
     <PackageContainer>
@@ -94,10 +109,10 @@ const PujaPackage = ({ bookingUrl }) => {
                 {point}
               </DetailText>
             ))}
-            <SelectButton variant="contained" endIcon={<ArrowForward />} onClick={()=>handlePujaBooking(packageData)}>
-              Participate
-            </SelectButton>
           </PackageContent>
+          <SelectButton variant="contained" endIcon={<ArrowForward />} onClick={() => handlePujaBooking(packageData)}>
+            Participate
+          </SelectButton>
         </PackageCard>
       ))}
     </PackageContainer>

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
@@ -12,15 +12,34 @@ const DetailContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const HorizontalCard = styled(Card)`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 900px;
   width: 100%;
   margin: 20px;
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+
+    @media (min-width: 768px) {
+      width: 50%;
+      height: 100%;
+    }
+  }
 `;
 
 const CardDetails = styled(CardContent)`
@@ -29,6 +48,10 @@ const CardDetails = styled(CardContent)`
   justify-content: space-between;
   padding: 20px;
   flex: 1;
+
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 `;
 
 const ContentText = styled(Typography)`
@@ -42,10 +65,10 @@ const IconTextContainer = styled.div`
 `;
 
 const SelectButton = styled(Button)`
-  background-color: #90ee90; /* Light green background */
+  background-color: #90ee90;
   color: white;
   &:hover {
-    background-color: #32cd32; /* Darker green on hover */
+    background-color: #32cd32;
   }
 `;
 
@@ -67,7 +90,6 @@ const EpujaDetails = () => {
   const card = cards.find((data) => {
     let title = data.heading.toLowerCase();
     let param = id.replace(/-/g, ' ').toLowerCase();
-
     return title.includes(param);
   });
 
@@ -86,7 +108,7 @@ const EpujaDetails = () => {
   return (
     <DetailContainer>
       <HorizontalCard>
-        <CardMedia component="img" height="200" image={card.image} alt="Temple" />
+        <CardMedia component="img" image={card.image} alt="Temple" />
         <CardDetails>
           <ContentText variant="h6">{card.heading}</ContentText>
           <ContentText variant="body1" fontWeight="bold">

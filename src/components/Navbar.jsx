@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Menu, MenuItem, IconButton, Button, Avatar, ListItemText, Divider, Typography } from '@mui/material';
+import { Menu, MenuItem, IconButton, Button, Avatar, ListItemText, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 import sriMandirLogo from '../assets/logo.svg';
 
 const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px 7rem;
+  align-items: center;
+  padding: 10px 20px;
   background-color: #fff;
   color: #000;
-  height: 60px;
+  margin-top:1rem;
+
+  @media (min-width: 768px) {
+    padding: 10px 7rem;
+  }
 `;
 
 const Logo = styled.img`
@@ -20,7 +26,11 @@ const Logo = styled.img`
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -41,10 +51,26 @@ const LangButton = styled(Button)`
   }
 `;
 
+const MenuButton = styled(IconButton)`
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled(Menu)`
+  .MuiPaper-root {
+    width: 100%;
+    max-width: 300px;
+  }
+`;
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [langAnchorEl, setLangAnchorEl] = useState(null);
   const [avatarAnchorEl, setAvatarAnchorEl] = useState(null);
+  const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState(null);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -70,6 +96,14 @@ const Navbar = () => {
     setAvatarAnchorEl(null);
   };
 
+  const handleMobileMenuOpen = (event) => {
+    setMobileMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMenuAnchorEl(null);
+  };
+
   return (
     <NavbarContainer>
       <Link to="/">
@@ -77,14 +111,10 @@ const Navbar = () => {
       </Link>
       <NavLinks>
         <NavLink component={Link} to="/">Home</NavLink>
-        <NavLink onClick={handleMenuOpen}>
-          Puja
-        </NavLink>
+        <NavLink onClick={handleMenuOpen}>Puja</NavLink>
         <NavLink component={Link} to="/panchang">Panchang</NavLink>
         <NavLink component={Link} to="/temples">Temples</NavLink>
-        <NavLink onClick={handleMenuOpen}>
-          Library
-        </NavLink>
+        <NavLink onClick={handleMenuOpen}>Library</NavLink>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
@@ -131,6 +161,25 @@ const Navbar = () => {
           <MenuItem component={Link} to="/ramotsav-bookings" onClick={handleAvatarMenuClose}>My Ramotsav Bookings</MenuItem>
           <MenuItem component={Link} to="/book-puja" onClick={handleAvatarMenuClose}>Book a Puja</MenuItem>
         </Menu>
+        <MenuButton onClick={handleMobileMenuOpen}>
+          <MenuIcon />
+        </MenuButton>
+        <MobileMenu
+          anchorEl={mobileMenuAnchorEl}
+          open={Boolean(mobileMenuAnchorEl)}
+          onClose={handleMobileMenuClose}
+        >
+          <MenuItem component={Link} to="/" onClick={handleMobileMenuClose}>Home</MenuItem>
+          <MenuItem onClick={handleMobileMenuOpen}>Puja</MenuItem>
+          <MenuItem component={Link} to="/panchang" onClick={handleMobileMenuClose}>Panchang</MenuItem>
+          <MenuItem component={Link} to="/temples" onClick={handleMobileMenuClose}>Temples</MenuItem>
+          <MenuItem onClick={handleMenuOpen}>Library</MenuItem>
+          <Divider />
+          <MenuItem component={Link} to="/profile" onClick={handleAvatarMenuClose}>My Profile</MenuItem>
+          <MenuItem component={Link} to="/epuja/history" onClick={handleAvatarMenuClose}>My Puja Bookings</MenuItem>
+          <MenuItem component={Link} to="/ramotsav-bookings" onClick={handleAvatarMenuClose}>My Ramotsav Bookings</MenuItem>
+          <MenuItem component={Link} to="/book-puja" onClick={handleAvatarMenuClose}>Book a Puja</MenuItem>
+        </MobileMenu>
       </div>
     </NavbarContainer>
   );

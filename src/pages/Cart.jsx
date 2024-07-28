@@ -32,7 +32,7 @@ const PriceText = styled(Typography)`
 `;
 
 const SelectButton = styled(Button)`
-  background-color: #90ee90; /* Light green background */
+  background-color: #90ee90;
   color: white;
   margin-top: 20px;
   display: flex;
@@ -40,7 +40,7 @@ const SelectButton = styled(Button)`
   justify-content: space-between;
   padding: 10px 20px;
   &:hover {
-    background-color: #32cd32; /* Darker green on hover */
+    background-color: #32cd32;
   }
 `;
 

@@ -27,11 +27,11 @@ const FormField = styled.div`
 `;
 
 const ProceedButton = styled(Button)`
-  background-color: #90ee90; /* Light green background */
+  background-color: #90ee90;
   color: white;
   margin-top: 20px;
   &:hover {
-    background-color: #32cd32; /* Darker green on hover */
+    background-color: #32cd32;
   }
 `;
 
