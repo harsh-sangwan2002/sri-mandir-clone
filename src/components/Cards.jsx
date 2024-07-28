@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card, CardMedia, CardContent, Typography, Button, IconButton } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { LocationOn, CalendarToday, ArrowForward } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import CardData from '../constants/CardData';
 
 const CardsContainer = styled.div`
@@ -36,50 +37,52 @@ const ParticipateButton = styled(Button)`
 `;
 
 const Cards = () => {
-    return (
-        <CardsContainer>
-            {CardData.map((data, index) => (
-                <StyledCard key={index}>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image={data.image}
-                        alt="Temple"
-                    />
-                    <CardContent>
-                        <ContentText variant="h6" align="center">
-                            {data.heading}
-                        </ContentText>
-                        <ContentText variant="body1" fontWeight="bold">
-                            {data.boldText}
-                        </ContentText>
-                        <ContentText variant="body2" color="textSecondary">
-                            {data.smallText}
-                        </ContentText>
-                        <IconTextContainer>
-                            <LocationOn />
-                            <Typography variant="body2" color="textSecondary">
-                                {data.templeInfo}
-                            </Typography>
-                        </IconTextContainer>
-                        <IconTextContainer>
-                            <CalendarToday />
-                            <Typography variant="body2" color="textSecondary">
-                                {data.dateInfo}
-                            </Typography>
-                        </IconTextContainer>
-                        <ParticipateButton
-                            variant="contained"
-                            endIcon={<ArrowForward />}
-                            fullWidth
-                        >
-                            Participate
-                        </ParticipateButton>
-                    </CardContent>
-                </StyledCard>
-            ))}
-        </CardsContainer>
-    );
+  const navigate = useNavigate();
+
+  const handleParticipateClick = (id) => {
+    navigate(`/epuja/${id}`);
+  };
+
+  return (
+    <CardsContainer>
+      {CardData.map((data) => (
+        <StyledCard key={data.id}>
+          <CardMedia component="img" height="140" image={data.image} alt="Temple" />
+          <CardContent>
+            <ContentText variant="h6" align="center">
+              {data.heading}
+            </ContentText>
+            <ContentText variant="body1" fontWeight="bold">
+              {data.boldText}
+            </ContentText>
+            <ContentText variant="body2" color="textSecondary">
+              {data.smallText}
+            </ContentText>
+            <IconTextContainer>
+              <LocationOn />
+              <Typography variant="body2" color="textSecondary">
+                {data.templeInfo}
+              </Typography>
+            </IconTextContainer>
+            <IconTextContainer>
+              <CalendarToday />
+              <Typography variant="body2" color="textSecondary">
+                {data.dateInfo}
+              </Typography>
+            </IconTextContainer>
+            <ParticipateButton
+              variant="contained"
+              endIcon={<ArrowForward />}
+              fullWidth
+              onClick={() => handleParticipateClick(data.id)}
+            >
+              Participate
+            </ParticipateButton>
+          </CardContent>
+        </StyledCard>
+      ))}
+    </CardsContainer>
+  );
 };
 
 export default Cards;

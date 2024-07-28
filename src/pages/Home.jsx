@@ -7,6 +7,8 @@ const Home = () => {
   return (
     <div>
       <Hero/>
+      <Footer/>
+      <Socials/>
     </div>
   );
 };

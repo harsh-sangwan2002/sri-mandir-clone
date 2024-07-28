@@ -33,12 +33,6 @@ const NavLink = styled(Link)`
   }
 `;
 
-const NavLinkWithIcon = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
-
 const LangButton = styled(Button)`
   border: 1px solid grey;
   color: #000;
@@ -78,7 +72,9 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <Logo src={sriMandirLogo} alt="Sri Mandir" />
+      <Link to="/">
+        <Logo src={sriMandirLogo} alt="Sri Mandir" />
+      </Link>
       <NavLinks>
         <NavLink component={Link} to="/">Home</NavLink>
         <NavLink onClick={handleMenuOpen}>
@@ -130,10 +126,10 @@ const Navbar = () => {
             <ListItemText primary="Hello, Sri Mandir Bhakt" secondary="Welcome to Sri Mandir Puja Seva" />
           </MenuItem>
           <Divider />
-          <MenuItem component={Link} to="/profile">My Profile</MenuItem>
-          <MenuItem component={Link} to="/epuja">My Puja Bookings</MenuItem>
-          <MenuItem component={Link} to="/ramotsav-bookings">My Ramotsav Bookings</MenuItem>
-          <MenuItem component={Link} to="/book-puja">Book a Puja</MenuItem>
+          <MenuItem component={Link} to="/profile" onClick={handleAvatarMenuClose}>My Profile</MenuItem>
+          <MenuItem component={Link} to="/epuja/history" onClick={handleAvatarMenuClose}>My Puja Bookings</MenuItem>
+          <MenuItem component={Link} to="/ramotsav-bookings" onClick={handleAvatarMenuClose}>My Ramotsav Bookings</MenuItem>
+          <MenuItem component={Link} to="/book-puja" onClick={handleAvatarMenuClose}>Book a Puja</MenuItem>
         </Menu>
       </div>
     </NavbarContainer>
