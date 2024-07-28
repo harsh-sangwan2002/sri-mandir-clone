@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { LocationOn, CalendarToday, ArrowForward } from '@mui/icons-material';
 import PujaPackage from '../components/PujaPackage';
-import CardData from '../constants/CardData';
+import { useCardContext } from '../context/CardContext';
 
 const DetailContainer = styled.div`
   display: flex;
@@ -62,8 +62,15 @@ const Timer = styled.div`
 
 const EpujaDetails = () => {
   const { id } = useParams();
-  const cards = CardData;
-  const card = cards.find((data) => data.id === parseInt(id));
+  const cards = useCardContext();
+
+  const card = cards.find((data) => {
+    let title = data.heading.toLowerCase();
+    let param = id.replace(/-/g, ' ').toLowerCase();
+
+    return title.includes(param);
+  });
+
   const pujaPackageRef = useRef(null);
 
   const handleScrollToPujaPackage = () => {
@@ -73,6 +80,8 @@ const EpujaDetails = () => {
   if (!card) {
     return <Typography variant="h6">Card not found</Typography>;
   }
+
+  const pujaBookingName = card.heading.replace(/\s+/g, '-');
 
   return (
     <DetailContainer>
@@ -95,7 +104,7 @@ const EpujaDetails = () => {
           <IconTextContainer>
             <CalendarToday />
             <Typography variant="body2" color="textSecondary">
-              {card.date}
+              {card.dateInfo}
             </Typography>
           </IconTextContainer>
           <TimerContainer>
@@ -125,7 +134,7 @@ const EpujaDetails = () => {
         </CardDetails>
       </HorizontalCard>
       <div ref={pujaPackageRef}>
-        <PujaPackage />
+        <PujaPackage bookingUrl={pujaBookingName} />
       </div>
     </DetailContainer>
   );

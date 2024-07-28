@@ -39,7 +39,9 @@ const ParticipateButton = styled(Button)`
 const Cards = () => {
   const navigate = useNavigate();
 
-  const handleParticipateClick = (id) => {
+  const handleParticipateClick = (heading) => {
+
+    const id = heading.replace(/\s+/g, '-');
     navigate(`/epuja/${id}`);
   };
 
@@ -74,7 +76,7 @@ const Cards = () => {
               variant="contained"
               endIcon={<ArrowForward />}
               fullWidth
-              onClick={() => handleParticipateClick(data.id)}
+              onClick={() => handleParticipateClick(data.heading)}
             >
               Participate
             </ParticipateButton>

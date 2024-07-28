@@ -9,7 +9,7 @@ const CardProvider = ({ children }) => {
   const [cards, setCards] = useState(CardData);
 
   return (
-    <CardContext.Provider value={{ cards }}>
+    <CardContext.Provider value={cards}>
       {children}
     </CardContext.Provider>
   )

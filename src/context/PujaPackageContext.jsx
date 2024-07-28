@@ -9,7 +9,7 @@ const PujaPackageProvider = ({ children }) => {
     const [packages, setPackages] = useState(PujaPackageData);
 
     return (
-        <PujaPackageContext.Provider value={{ packages }}>
+        <PujaPackageContext.Provider value={packages}>
             {children}
         </PujaPackageContext.Provider>
     )

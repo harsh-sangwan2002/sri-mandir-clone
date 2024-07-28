@@ -8,7 +8,7 @@ const CardData = [
         boldText: '1008 Swarnakarshan Bhairav Mantra Jaap and Kaal Bhairav Ashtakam Stotra Path',
         smallText: 'For Debt Relief, Financial Abundance and Stability',
         templeInfo: 'Shri Batuk Bhairav Temple, Kashi, Uttar Pradesh',
-        dateInfo: '28 July, Sunday, Shravana Krishna Ashtami (upto 07:27 PM)',
+        dateInfo: '28 July 2024',
         timer:{
             days:24,
             hours:15,
@@ -23,7 +23,7 @@ const CardData = [
         boldText: '1008 Swarnakarshan Bhairav Mantra Jaap and Kaal Bhairav Ashtakam Stotra Path',
         smallText: 'For Debt Relief, Financial Abundance and Stability',
         templeInfo: 'Shri Batuk Bhairav Temple, Kashi, Uttar Pradesh',
-        dateInfo: '28 July, Sunday, Shravana Krishna Ashtami (upto 07:27 PM)',
+        dateInfo: '28 July 2024',
         timer:{
             days:24,
             hours:15,
@@ -38,7 +38,7 @@ const CardData = [
         boldText: '1008 Swarnakarshan Bhairav Mantra Jaap and Kaal Bhairav Ashtakam Stotra Path',
         smallText: 'For Debt Relief, Financial Abundance and Stability',
         templeInfo: 'Shri Batuk Bhairav Temple, Kashi, Uttar Pradesh',
-        dateInfo: '28 July, Sunday, Shravana Krishna Ashtami (upto 07:27 PM)',
+        dateInfo: '28 July 2024',
         timer:{
             days:24,
             hours:15,
