@@ -1,8 +1,33 @@
-# React + Vite
+# Sri Mandir Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a clone of the [Sri Mandir](https://www.srimandir.com/) website, built using modern web development technologies.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo of this app [here]().
+
+## Technologies Used
+
+- React
+- react-hooks
+- react-router-dom
+- context-api
+- styled-components
+- react-slick
+- slick-carousel
+
+## Getting Started
+
+To get started with the 100 Days Web Development Challenge, follow these steps:
+
+1. Clone this repository.
+2. Install the necessary dependencies.
+
+## Project Structure
+
+The project structure is organized as follows:
+
+- `assets/`: Images and Logo for the website.
+- `components/`: Contains all the react components.
+- `context/`: State Management for the app.
+- `pages/`: Contains all the page components.
